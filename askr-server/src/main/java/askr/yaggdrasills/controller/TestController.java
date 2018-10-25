@@ -1,16 +1,16 @@
 package askr.yaggdrasills.controller;
 
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.core.util.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
 @RestController
@@ -23,7 +23,7 @@ public class TestController {
     @RequestMapping("/D3SimpleForceData")
     public JSONObject getD3SimpleForceData(){
         try {
-            String D3SimpleForceData =  IOUtils.toString(D3SimpleForceDataRes.getInputStream(), Charset.forName("UTF-8"));
+            String D3SimpleForceData =  IOUtils.toString(new InputStreamReader(D3SimpleForceDataRes.getInputStream()));
             return JSONObject.parseObject(D3SimpleForceData);
         } catch (IOException e) {
             e.printStackTrace();
