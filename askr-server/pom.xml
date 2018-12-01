@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-<parent>
-    <groupId>askr-yggdrasills</groupId>
-    <artifactId>askr-yggdrasills-api</artifactId>
+    <parent>
+        <groupId>askr-yggdrasills</groupId>
+        <artifactId>askr-yggdrasills-api</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>askr-yggdrasills-api</groupId>
+    <artifactId>askr-server</artifactId>
     <version>1.0-SNAPSHOT</version>
-</parent>
+    <packaging>jar</packaging>
 
-<groupId>askr-yggdrasills-api</groupId>
-<artifactId>askr-server</artifactId>
-<version>1.0-SNAPSHOT</version>
-<packaging>jar</packaging>
+    <name>askr-server</name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <fastjson.version>1.2.44</fastjson.version>
+        <common_pool.version>2.0</common_pool.version>
+        <mybatis.version>1.3.2</mybatis.version>
+    </properties>
 
-<name>askr-server</name>
-
-
-<!--<parent>-->
-<!--<groupId>org.springframework.boot</groupId>-->
-<!--<artifactId>spring-boot-starter-parent</artifactId>-->
-<!--<version>2.1.0.RC1</version>-->
-<!--<relativePath/>-->
-<!--</parent>-->
-
-<properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
-    <common_pool.version>2.0</common_pool.version>
-</properties>
 
     <dependencies>
         <dependency>
@@ -46,10 +40,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-neo4j</artifactId>
         </dependency>
 
         <dependency>
@@ -78,11 +68,6 @@
             <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -92,7 +77,6 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -117,7 +101,11 @@
             <version>${common_pool.version}</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -12,22 +12,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 @RestController
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping("/chartData")
+public class QueryController {
 
     @Value("classpath:testdata/D3SimpleForceData.json")
     private Resource D3SimpleForceDataRes;
 
-    @RequestMapping("/D3SimpleForceData")
-    public JSONObject getD3SimpleForceData(){
+    @RequestMapping("/QuerySimpleForceChartData")
+    public JSONObject querySimpleForceChartData(){
         try {
-            String D3SimpleForceData =  IOUtils.toString(new InputStreamReader(D3SimpleForceDataRes.getInputStream()));
-            return JSONObject.parseObject(D3SimpleForceData);
+            String SimpleForceChartData =  IOUtils.toString(new InputStreamReader(D3SimpleForceDataRes.getInputStream()));
+            return JSONObject.parseObject(SimpleForceChartData);
         } catch (IOException e) {
             e.printStackTrace();
             return new JSONObject();
         }
     }
+
+
 
 
 

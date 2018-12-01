@@ -6,7 +6,13 @@
 
     <groupId>askr-yggdrasills</groupId>
     <artifactId>askr-yggdrasills-api</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>askr-model</module>
+        <module>askr-dao</module>
+        <module>askr-common</module>
+    </modules>
 
     <properties>
         <junit.version>4.12</junit.version>
