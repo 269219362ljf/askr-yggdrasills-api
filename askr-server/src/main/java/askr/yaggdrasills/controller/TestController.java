@@ -19,17 +19,15 @@ public class TestController {
     private Resource D3SimpleForceDataRes;
 
     @RequestMapping("/D3SimpleForceData")
-    public JSONObject getD3SimpleForceData(){
+    public JSONObject getD3SimpleForceData() {
         try {
-            String D3SimpleForceData =  IOUtils.toString(new InputStreamReader(D3SimpleForceDataRes.getInputStream()));
+            String D3SimpleForceData = IOUtils.toString(new InputStreamReader(D3SimpleForceDataRes.getInputStream()));
             return JSONObject.parseObject(D3SimpleForceData);
         } catch (IOException e) {
             e.printStackTrace();
             return new JSONObject();
         }
     }
-
-
 
 
 }

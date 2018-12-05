@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix="testmodel")
+@ConfigurationProperties(prefix = "testmodel")
 public class TestModel {
 
     private String id;

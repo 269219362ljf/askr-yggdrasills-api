@@ -1,4 +1,4 @@
-package redis;
+package askr.yaggdrasills.redis;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
