@@ -23,6 +23,7 @@
         <common_pool.version>2.0</common_pool.version>
         <mybatis.version>1.3.2</mybatis.version>
         <askr-dao.version>1.0-SNAPSHOT</askr-dao.version>
+        <askr-common.version>1.0-SNAPSHOT</askr-common.version>
     </properties>
 
 
@@ -46,6 +47,11 @@
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-neo4j</artifactId>
         </dependency>
 
         <dependency>
@@ -107,11 +113,20 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${mybatis.version}</version>
         </dependency>
+
         <dependency>
             <groupId>askr-yggdrasills</groupId>
             <artifactId>askr-dao</artifactId>
             <version>${askr-dao.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>askr-yggdrasills</groupId>
+            <artifactId>askr-common</artifactId>
+            <version>${askr-common.version}</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

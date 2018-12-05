@@ -1,4 +1,4 @@
-package redis;
+package askr.yaggdrasills.redis;
 
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;

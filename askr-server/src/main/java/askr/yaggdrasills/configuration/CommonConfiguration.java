@@ -1,6 +1,7 @@
 package askr.yaggdrasills.configuration;
 
 
+import askr.common.utils.CommonUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -12,11 +13,7 @@ public class CommonConfiguration {
 
     //跨域访问全局配置
     private CorsConfiguration buildConfig() {
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("*");
-        corsConfiguration.addAllowedHeader("*");
-        corsConfiguration.addAllowedMethod("*");
-        return corsConfiguration;
+        return CommonUtils.buildCorsConfig();
     }
 
     @Bean
