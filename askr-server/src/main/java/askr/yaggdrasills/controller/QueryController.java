@@ -19,19 +19,15 @@ public class QueryController {
     private Resource D3SimpleForceDataRes;
 
     @RequestMapping("/QuerySimpleForceChartData")
-    public JSONObject querySimpleForceChartData(){
+    public JSONObject querySimpleForceChartData() {
         try {
-            String SimpleForceChartData =  IOUtils.toString(new InputStreamReader(D3SimpleForceDataRes.getInputStream()));
+            String SimpleForceChartData = IOUtils.toString(new InputStreamReader(D3SimpleForceDataRes.getInputStream()));
             return JSONObject.parseObject(SimpleForceChartData);
         } catch (IOException e) {
             e.printStackTrace();
             return new JSONObject();
         }
     }
-
-
-
-
 
 
 }

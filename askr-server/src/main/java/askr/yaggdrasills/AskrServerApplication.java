@@ -22,18 +22,18 @@ public class AskrServerApplication {
     private TestModel testModel;
 
     public static void main(String[] args) {
-        SpringApplication app=new SpringApplication(AskrServerApplication.class);
+        SpringApplication app = new SpringApplication(AskrServerApplication.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
     }
 
 
     @RequestMapping("/")
-    String index(){
-        String result="Hello Spring Boot\n";
-        result+=testValue+"\n";
-        result+=testModel.toString();
-        return "Hello Spring Boot "+result;
+    String index() {
+        String result = "Hello Spring Boot\n";
+        result += testValue + "\n";
+        result += testModel.toString();
+        return "Hello Spring Boot " + result;
     }
 
 }

@@ -1,8 +1,6 @@
 package askr.yaggdrasills.configuration;
 
 
-
-
 import askr.yaggdrasills.task.TestJob;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,12 +17,12 @@ public class QuartzConfiguration {
     private int jobSeconds;
 
     @Bean
-    public JobDetail TestJobQuartzDetail(){
+    public JobDetail TestJobQuartzDetail() {
         return JobBuilder.newJob(TestJob.class).withIdentity("TestJob").storeDurably().build();
     }
 
     @Bean
-    public Trigger TestJobQuartzTrigger(){
+    public Trigger TestJobQuartzTrigger() {
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
                 .withIntervalInSeconds(jobSeconds)  //设置时间周期单位秒
                 .repeatForever();

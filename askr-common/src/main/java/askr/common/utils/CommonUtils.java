@@ -1,9 +1,7 @@
 package askr.common.utils;
 
-import org.slf4j.Logger;
 import org.springframework.web.cors.CorsConfiguration;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class CommonUtils {

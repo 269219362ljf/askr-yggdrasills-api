@@ -41,7 +41,7 @@ public class RedisUtil {
             }
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -49,7 +49,7 @@ public class RedisUtil {
     /**
      * 默认指定缓存失效时间
      *
-     * @param key  键
+     * @param key 键
      * @return
      */
     public boolean dafaultExpire(String key) {
@@ -57,7 +57,7 @@ public class RedisUtil {
             redisTemplate.expire(key, Constants.REDIS_EXPIRETIME, Constants.REDIS_EXPIRETIME_TIMEUNIT);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -86,7 +86,7 @@ public class RedisUtil {
         try {
             return redisTemplate.hasKey(key);
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -144,7 +144,7 @@ public class RedisUtil {
         try {
             return redisTemplate.opsForSet().members(key);
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return null;
         }
     }
@@ -160,7 +160,7 @@ public class RedisUtil {
         try {
             return redisTemplate.opsForSet().isMember(key, value);
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -175,7 +175,7 @@ public class RedisUtil {
         try {
             return redisTemplate.opsForSet().size(key);
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return 0;
         }
     }
@@ -192,7 +192,7 @@ public class RedisUtil {
         try {
             return redisTemplate.opsForList().range(key, start, end);
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return null;
         }
     }
@@ -207,7 +207,7 @@ public class RedisUtil {
         try {
             return redisTemplate.opsForList().size(key);
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return 0;
         }
     }
@@ -223,13 +223,10 @@ public class RedisUtil {
         try {
             return redisTemplate.opsForList().index(key, index);
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return null;
         }
     }
-
-
-
 
 
 // ============================删除=============================
@@ -273,7 +270,7 @@ public class RedisUtil {
             Long count = redisTemplate.opsForSet().remove(key, values);
             return count;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return 0;
         }
     }
@@ -291,7 +288,7 @@ public class RedisUtil {
             Long remove = redisTemplate.opsForList().remove(key, count, value);
             return remove;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return 0;
         }
     }
@@ -299,15 +296,15 @@ public class RedisUtil {
     /**
      * 移除N个值为item
      *
-     * @param key    键
+     * @param key   键
      * @param items 值 可以是多个
      * @return 移除的个数
      */
-    public long zRemove(String key,Object ...items){
-        try{
-            return redisTemplate.opsForZSet().remove(key,items);
-        }catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+    public long zRemove(String key, Object... items) {
+        try {
+            return redisTemplate.opsForZSet().remove(key, items);
+        } catch (Exception e) {
+            log.error(" RedisUtil error is {} ", e);
             return 0;
         }
     }
@@ -328,7 +325,7 @@ public class RedisUtil {
             dafaultExpire(key);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -350,11 +347,10 @@ public class RedisUtil {
             }
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
-
 
 
     /**
@@ -370,7 +366,7 @@ public class RedisUtil {
             dafaultExpire(key);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -378,19 +374,19 @@ public class RedisUtil {
     /**
      * HashSet 并设置时间
      *
-     * @param key  键
-     * @param map  对应多个键值
+     * @param key 键
+     * @param map 对应多个键值
      * @return true成功 false失败
      */
     public boolean hmset(String key, Map<String, Object> map, long time) {
         try {
             redisTemplate.opsForHash().putAll(key, map);
             if (time > 0) {
-                expire(key,time);
+                expire(key, time);
             }
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -409,7 +405,7 @@ public class RedisUtil {
             dafaultExpire(key);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -431,7 +427,7 @@ public class RedisUtil {
             }
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -449,7 +445,7 @@ public class RedisUtil {
             dafaultExpire(key);
             return count;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return 0;
         }
     }
@@ -469,7 +465,7 @@ public class RedisUtil {
                 expire(key, time);
             return count;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return 0;
         }
     }
@@ -487,7 +483,7 @@ public class RedisUtil {
             dafaultExpire(key);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -507,7 +503,7 @@ public class RedisUtil {
                 expire(key, time);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -525,7 +521,7 @@ public class RedisUtil {
             dafaultExpire(key);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -545,7 +541,7 @@ public class RedisUtil {
                 expire(key, time);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
         }
     }
@@ -553,32 +549,21 @@ public class RedisUtil {
     /**
      * 将列表放入有序列表
      *
-     * @param key   键
+     * @param key    键
      * @param values 值列表
      * @return
      */
-    public Long zSet(String key,List<ZSetItem> values ){
+    public Long zSet(String key, List<ZSetItem> values) {
         try {
-            Set<ZSetOperations.TypedTuple<Object>> set=new HashSet<>();
+            Set<ZSetOperations.TypedTuple<Object>> set = new HashSet<>();
             values.stream().forEach(zSetItem -> set.add(zSetItem));
-            return redisTemplate.opsForZSet().add(key,set);
+            return redisTemplate.opsForZSet().add(key, set);
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return 0L;
         }
     }
 
-    public class ZSetItem extends DefaultTypedTuple {
-
-        public ZSetItem(Object value, Double score) {
-            super(value, score);
-        }
-    }
-
-
-
-
-// ============================更新=============================
     /**
      * 递增
      *
@@ -592,6 +577,9 @@ public class RedisUtil {
         }
         return redisTemplate.opsForValue().increment(key, delta);
     }
+
+
+// ============================更新=============================
 
     /**
      * 递减
@@ -644,8 +632,15 @@ public class RedisUtil {
             redisTemplate.opsForList().set(key, index, value);
             return true;
         } catch (Exception e) {
-            log.error(" RedisUtil error is {} ",e);
+            log.error(" RedisUtil error is {} ", e);
             return false;
+        }
+    }
+
+    public class ZSetItem extends DefaultTypedTuple {
+
+        public ZSetItem(Object value, Double score) {
+            super(value, score);
         }
     }
 
