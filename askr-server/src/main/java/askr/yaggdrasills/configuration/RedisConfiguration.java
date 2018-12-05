@@ -13,6 +13,7 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import redis.RedisSupport;
 
 import java.lang.reflect.Method;
 
@@ -22,41 +23,17 @@ public class RedisConfiguration extends CachingConfigurerSupport {
 
     @Bean
     public KeyGenerator KeyGenerator() {
-        return new KeyGenerator() {
-            @Override
-            public Object generate(Object target, Method method, Object... params) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(target.getClass().getName());
-                sb.append(method.getName());
-                for (Object obj : params) {
-                    sb.append(obj.toString());
-                }
-                return sb.toString();
-            }
-        };
+        return RedisSupport.RedisKeyGenerator();
     }
 
     //缓存管理器
     @Bean
     CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
-        //初始化一个RedisCacheWriter
-        RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(connectionFactory);
-        RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
-        //初始化RedisCacheManager
-        RedisCacheManager cacheManager = new RedisCacheManager(redisCacheWriter, defaultCacheConfig);
-        return cacheManager;
+        return RedisSupport.getDefaultRedisCacheManager(connectionFactory);
     }
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
-        RedisTemplate template =  new RedisTemplate<String, Object>();
-        template.setConnectionFactory(factory);
-//        template.setKeySerializer(new FastJsonRedisSerializer(Object.class));
-//        template.setValueSerializer(new FastJsonRedisSerializer(Object.class));
-//        template.setHashKeySerializer(new FastJsonRedisSerializer(Object.class));
-//        template.setHashValueSerializer(new FastJsonRedisSerializer(Object.class));
-        template.setDefaultSerializer(new FastJsonRedisSerializer(Object.class));
-        template.afterPropertiesSet();
-        return template;
+        return RedisSupport.getDefaultRedisTemplate(factory);
     }
 }
