@@ -12,8 +12,9 @@
         <module>askr-model</module>
         <module>askr-dao</module>
         <module>askr-common</module>
-        <module>askr-jni</module>
+        <module>askr-model</module>
         <module>askr-server</module>
+        <module>askr-jni</module>
     </modules>
 
     <properties>
