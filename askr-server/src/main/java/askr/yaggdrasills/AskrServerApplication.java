@@ -24,10 +24,12 @@ import javax.annotation.Resource;
 public class AskrServerApplication {
 
     private static Logger log = LoggerFactory.getLogger(AskrServerApplication.class);
-
+    @Resource
+    UserRepository userRepository;
+    @Autowired
+    org.neo4j.ogm.config.Configuration configuration;
     @Value("${test.value}")
     private String testValue;
-
     @Autowired
     private TestModel testModel;
 
@@ -36,13 +38,6 @@ public class AskrServerApplication {
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
     }
-
-
-    @Resource
-    UserRepository userRepository;
-
-    @Autowired
-    org.neo4j.ogm.config.Configuration configuration;
 
     @RequestMapping("/")
     String index() {

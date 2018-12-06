@@ -23,36 +23,32 @@ public class Neo4jTest extends AskrServerApplicationTests {
     org.neo4j.ogm.config.Configuration configuration;
 
     @Test
-    public void createUserNode(){
+    public void createUserNode() {
         System.out.println(userRepository);
         UserNode userNode = new UserNode();
         userNode.setName("老鼠");
         userNode.setUserId("123");
         UserNode save = userRepository.save(userNode);
         logger.info(save.toString());
-        Assert.assertTrue(save!=null);
+        Assert.assertTrue(save != null);
     }
 
     @Test
-    public void delAll(){
+    public void delAll() {
         userRepository.deleteAll();
     }
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println("success");
     }
 
     @Test
-    public void showConfiguration(){
+    public void showConfiguration() {
         //查看neo4j的驱动和uri
-        System.out.println("neo4j drivername:"+configuration.getDriverClassName());
-        System.out.println("neo4j uri:"+configuration.getURI());
+        System.out.println("neo4j drivername:" + configuration.getDriverClassName());
+        System.out.println("neo4j uri:" + configuration.getURI());
     }
-
-
-
-
 
 
 }

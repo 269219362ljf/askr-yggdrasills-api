@@ -15,7 +15,7 @@ public class UserNode implements Serializable {
     @GeneratedValue
     private Long id;
 
-    private  String name;
+    private String name;
 
     private String userId;
 
