@@ -1,12 +1,14 @@
 package askr.yaggdrasills.neo4j.node;
 
+import lombok.Data;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 import java.io.Serializable;
 
-@NodeEntity(label = "user")
+@NodeEntity
+@Data
 public class UserNode implements Serializable {
 
     @Id
