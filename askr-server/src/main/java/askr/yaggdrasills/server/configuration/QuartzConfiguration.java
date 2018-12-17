@@ -1,7 +1,7 @@
-package askr.yaggdrasills.configuration;
+package askr.yaggdrasills.server.configuration;
 
 
-import askr.yaggdrasills.task.TestJob;
+import askr.yaggdrasills.server.task.TestJob;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

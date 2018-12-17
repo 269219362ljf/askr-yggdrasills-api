@@ -1,4 +1,4 @@
-package askr.yaggdrasills.task;
+package askr.yaggdrasills.server.task;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

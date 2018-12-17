@@ -1,4 +1,4 @@
-package askr.yaggdrasills.constant;
+package askr.yaggdrasills.server.constant;
 
 import askr.common.utils.CommonUtils;
 import org.slf4j.Logger;

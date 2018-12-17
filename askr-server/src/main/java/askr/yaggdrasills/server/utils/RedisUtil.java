@@ -1,7 +1,7 @@
-package askr.yaggdrasills.utils;
+package askr.yaggdrasills.server.utils;
 
 
-import askr.yaggdrasills.constant.Constants;
+import askr.yaggdrasills.server.constant.Constants;
 import askr.yaggdrasills.redis.BaseRedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

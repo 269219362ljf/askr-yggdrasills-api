@@ -1,4 +1,4 @@
-package askr.yaggdrasills.controller;
+package askr.yaggdrasills.server.controller;
 
 
 import com.alibaba.fastjson.JSONObject;

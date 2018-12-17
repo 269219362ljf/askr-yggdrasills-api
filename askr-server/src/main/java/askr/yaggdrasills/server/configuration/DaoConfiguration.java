@@ -1,4 +1,4 @@
-package askr.yaggdrasills.configuration;
+package askr.yaggdrasills.server.configuration;
 
 
 import org.springframework.context.annotation.Configuration;

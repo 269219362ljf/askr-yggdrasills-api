@@ -1,6 +1,6 @@
 package askr.yaggdrasills;
 
-import askr.yaggdrasills.model.TestModel;
+import askr.yaggdrasills.server.model.TestModel;
 import askr.yaggdrasills.neo4j.node.UserNode;
 import askr.yaggdrasills.neo4j.repository.UserRepository;
 import org.slf4j.Logger;

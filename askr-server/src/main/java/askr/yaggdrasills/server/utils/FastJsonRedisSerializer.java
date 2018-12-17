@@ -1,4 +1,4 @@
-package askr.yaggdrasills.utils;
+package askr.yaggdrasills.server.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;

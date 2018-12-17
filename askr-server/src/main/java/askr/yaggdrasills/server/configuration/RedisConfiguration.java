@@ -1,4 +1,4 @@
-package askr.yaggdrasills.configuration;
+package askr.yaggdrasills.server.configuration;
 
 
 import askr.yaggdrasills.redis.RedisSupport;

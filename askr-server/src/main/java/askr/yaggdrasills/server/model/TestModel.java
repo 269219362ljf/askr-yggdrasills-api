@@ -1,4 +1,4 @@
-package askr.yaggdrasills.model;
+package askr.yaggdrasills.server.model;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

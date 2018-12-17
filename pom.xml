@@ -15,6 +15,7 @@
         <module>askr-model</module>
         <module>askr-server</module>
         <module>askr-jni</module>
+        <module>askr-core</module>
     </modules>
 
     <properties>
