@@ -1,0 +1,29 @@
+server:
+  port: 8080
+logging:
+  config: classpath:log4j2-spring.xml
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1ms
+        max-active: 8
+        shutdown-timeout: 100ms
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306
+    username: lu
+    password: JianFeng.lu02
+    driver-class-name: com.mysql.jdbc.Driver
+  data:
+    neo4j:
+      uri: bolt://localhost:7687
+      username: lu
+      password: 123456
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: askr.yaggdrasills.mysql.entity
+
