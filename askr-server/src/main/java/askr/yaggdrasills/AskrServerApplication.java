@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 @EnableNeo4jRepositories
-@ComponentScan(basePackages = {"askr.yaggdrasills","askr.yaggdrasills.neo4j"})
+@ComponentScan(basePackages = {"askr.yaggdrasills", "askr.yaggdrasills.neo4j"})
 @SpringBootApplication
 public class AskrServerApplication {
 
