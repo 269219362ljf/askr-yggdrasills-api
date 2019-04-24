@@ -1,14 +1,15 @@
 package askr.yaggdrasills.configuration;
 
-
 import askr.common.utils.CommonUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @Configuration
+@PropertySource("classpath:config.properties")
 public class CommonConfiguration {
 
     //跨域访问全局配置
@@ -22,6 +23,5 @@ public class CommonConfiguration {
         source.registerCorsConfiguration("/**", buildConfig());
         return new CorsFilter(source);
     }
-
 
 }
