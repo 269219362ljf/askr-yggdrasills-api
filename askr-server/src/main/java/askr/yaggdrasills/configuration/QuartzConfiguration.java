@@ -13,23 +13,23 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class QuartzConfiguration {
 
-    @Value("${test_job_second}")
-    private int jobSeconds;
-
-    @Bean
-    public JobDetail TestJobQuartzDetail() {
-        return JobBuilder.newJob(TestJob.class).withIdentity("TestJob").storeDurably().build();
-    }
-
-    @Bean
-    public Trigger TestJobQuartzTrigger() {
-        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
-                .withIntervalInSeconds(jobSeconds)  //设置时间周期单位秒
-                .repeatForever();
-        return TriggerBuilder.newTrigger().forJob(TestJobQuartzDetail())
-                .withIdentity("TestJob")
-                .withSchedule(scheduleBuilder)
-                .build();
-    }
+//    @Value("${test_job_second}")
+//    private int jobSeconds;
+//
+//    @Bean
+//    public JobDetail TestJobQuartzDetail() {
+//        return JobBuilder.newJob(TestJob.class).withIdentity("TestJob").storeDurably().build();
+//    }
+//
+//    @Bean
+//    public Trigger TestJobQuartzTrigger() {
+//        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
+//                .withIntervalInSeconds(jobSeconds)  //设置时间周期单位秒
+//                .repeatForever();
+//        return TriggerBuilder.newTrigger().forJob(TestJobQuartzDetail())
+//                .withIdentity("TestJob")
+//                .withSchedule(scheduleBuilder)
+//                .build();
+//    }
 
 }

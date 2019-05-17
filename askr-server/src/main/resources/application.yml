@@ -16,7 +16,7 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306
     username: lu
-    password: JianFeng.lu02
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
 #  data:
 #    neo4j:

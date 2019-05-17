@@ -63,7 +63,7 @@
         <!--过滤掉spring和hibernate的一些无用的debug信息-->
         <logger name="org.springframework" level="ERROR">
         </logger>
-        <root level="ERROR">
+        <root level="INFO">
             <appender-ref ref="log"/>
             <appender-ref ref="Console"/>
             <appender-ref ref="RollingFileInfo"/>

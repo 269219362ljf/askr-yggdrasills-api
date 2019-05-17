@@ -1,8 +1,10 @@
 package askr.yaggdrasills.controller;
 
 
+import askr.yaggdrasills.service.TestRpcService;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.logging.log4j.core.util.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,9 @@ public class TestController {
     @Value("classpath:testdata/D3SimpleForceData.json")
     private Resource D3SimpleForceDataRes;
 
+    @Autowired
+    private TestRpcService testRpcService;
+
     @RequestMapping("/D3SimpleForceData")
     public JSONObject getD3SimpleForceData() {
         try {
@@ -28,6 +33,12 @@ public class TestController {
             return new JSONObject();
         }
     }
+
+    @RequestMapping("/runTest")
+    public String runTest(){
+        return testRpcService.runTest();
+    }
+
 
 
 }
