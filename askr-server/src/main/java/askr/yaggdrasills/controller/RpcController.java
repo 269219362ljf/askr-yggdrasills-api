@@ -1,12 +1,12 @@
 package askr.yaggdrasills.controller;
 
 
-import askr.yaggdrasills.service.TestRpcService;
-import askr.yaggdrasills.utils.ApplicationUtil;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.beans.factory.support.DefaultSingletonBeanRegistry;
-import org.springframework.context.ApplicationContext;
+import askr.yaggdrasills.iface.TestRpcService;
+import askr.yaggdrasills.model.RpcDto;
+import askr.yaggdrasills.server.RpcServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,23 +15,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/rpc")
 public class RpcController {
 
+    private static Logger logger = LoggerFactory.getLogger(RpcController.class);
+
+    @Autowired
+    private RpcServer rpcServer;
+
+
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String register(){
-        //TODO 此处用代理类替代
-        TestRpcService testRpcService=new TestRpcService();
-        testRpcService.setTestValue("change register");
-        ApplicationContext applicationContext=ApplicationUtil.getApplicationContext();
-        DefaultListableBeanFactory defaultListableBeanFactory = (DefaultListableBeanFactory)applicationContext.getAutowireCapableBeanFactory();
-        DefaultSingletonBeanRegistry defaultSingletonBeanRegistry = (DefaultSingletonBeanRegistry)defaultListableBeanFactory;
-        //BeanDefinitionBuilder beanDefinitionBuilder =BeanDefinitionBuilder.genericBeanDefinition(TestRpcService.class);
-        String[] beanNames=defaultListableBeanFactory.getBeanNamesForType(TestRpcService.class);
-        if(beanNames!=null&&beanNames.length>0){
-            for (String beanName : beanNames) {
-                //将bean删掉重建
-                defaultListableBeanFactory.removeBeanDefinition(beanName);
-                defaultListableBeanFactory.registerSingleton(beanName,testRpcService);
-            }
-        }
+        RpcDto rpcDto=new RpcDto();
+        rpcDto.setIp("127.0.0.1");
+        rpcDto.setPort(8888);
+        rpcDto.setRpcServiceClass(TestRpcService.class);
+        rpcServer.register(rpcDto);
         return "success";
     }
 

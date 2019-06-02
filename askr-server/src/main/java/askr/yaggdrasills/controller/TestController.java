@@ -1,7 +1,8 @@
 package askr.yaggdrasills.controller;
 
 
-import askr.yaggdrasills.service.TestRpcService;
+import askr.yaggdrasills.iface.TestRpcService;
+import askr.yaggdrasills.service.TestRpcServiceImpl;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.logging.log4j.core.util.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
