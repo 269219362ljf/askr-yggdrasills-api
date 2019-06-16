@@ -1,6 +1,8 @@
 package askr.yaggdrasills.controller;
 
 
+import askr.midgard.handle.SocketHandler;
+import askr.midgard.iface.SocketHandle;
 import askr.yaggdrasills.iface.TestRpcService;
 import askr.yaggdrasills.service.TestRpcServiceImpl;
 import com.alibaba.fastjson.JSONObject;
@@ -22,6 +24,9 @@ public class TestController {
     private Resource D3SimpleForceDataRes;
 
     @Autowired
+    private SocketHandler socketHandler;
+
+    @Autowired
     private TestRpcService testRpcService;
 
     @RequestMapping("/D3SimpleForceData")
@@ -35,11 +40,20 @@ public class TestController {
         }
     }
 
+    @RequestMapping("/socketTest")
+    public String test(){
+        try{
+            socketHandler.handle();
+            return "success";
+        }catch (Exception e){
+            return e.toString();
+        }
+
+    }
+
     @RequestMapping("/runTest")
     public String runTest(){
         return testRpcService.runTest();
     }
-
-
 
 }
