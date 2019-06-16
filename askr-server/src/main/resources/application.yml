@@ -14,7 +14,7 @@ spring:
         max-active: 8
 #        shutdown-timeout: 100ms
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306
+    url: jdbc:mysql://127.0.0.1:3306/askr?serverTimezone=GMT
     username: lu
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -24,6 +24,7 @@ spring:
 #      username: lu
 #      password: 123456
 mybatis:
-  mapper-locations: classpath*:mapper/*.xml
+  mapper-locations: classpath*:mapper/mysqlMappers/*.xml
   type-aliases-package: askr.yaggdrasills.mysql.entity
+
 

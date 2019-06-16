@@ -1,10 +1,8 @@
 package askr.yaggdrasills.controller;
 
 
-import askr.midgard.handle.SocketHandler;
-import askr.midgard.iface.SocketHandle;
+import askr.midgard.handle.StockHandler;
 import askr.yaggdrasills.iface.TestRpcService;
-import askr.yaggdrasills.service.TestRpcServiceImpl;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.logging.log4j.core.util.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +22,7 @@ public class TestController {
     private Resource D3SimpleForceDataRes;
 
     @Autowired
-    private SocketHandler socketHandler;
+    private StockHandler stockHandler;
 
     @Autowired
     private TestRpcService testRpcService;
@@ -40,20 +38,22 @@ public class TestController {
         }
     }
 
-    @RequestMapping("/socketTest")
+
+
+    @RequestMapping("/runTest")
+    public String runTest(){
+        return testRpcService.runTest();
+    }
+
+    @RequestMapping("/stockTest")
     public String test(){
         try{
-            socketHandler.handle();
+            stockHandler.handle();
             return "success";
         }catch (Exception e){
             return e.toString();
         }
 
-    }
-
-    @RequestMapping("/runTest")
-    public String runTest(){
-        return testRpcService.runTest();
     }
 
 }

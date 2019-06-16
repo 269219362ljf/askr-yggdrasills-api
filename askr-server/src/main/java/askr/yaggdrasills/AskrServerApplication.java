@@ -1,6 +1,7 @@
 package askr.yaggdrasills;
 
 import askr.yaggdrasills.model.TestModel;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.Banner;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableNeo4jRepositories
 @ComponentScan(basePackages = {"askr.yaggdrasills", "askr.yaggdrasills.neo4j","askr.midgard"})
+@MapperScan(basePackages = {"askr.mysql.mapper"})
 @SpringBootApplication
 public class AskrServerApplication {
 
