@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class StocketApiListDataDto {
+public class StockApiListDataDto {
     //代码
     private String symbol;
     //名称

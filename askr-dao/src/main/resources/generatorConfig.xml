@@ -38,7 +38,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table schema="askr" tableName="stock_code_list" domainObjectName="StockCodeList">
+        <table schema="askr" tableName="stock_transaction_data_list" domainObjectName="StockTransactionDataList">
             <property name="useActualColumnNames" value="false"/>
         </table>
     </context>

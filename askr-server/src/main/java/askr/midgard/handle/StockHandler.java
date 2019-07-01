@@ -2,7 +2,8 @@ package askr.midgard.handle;
 
 
 import askr.midgard.iface.SocketHandle;
-import askr.midgard.service.StocketApiService;
+
+import askr.midgard.service.StockApiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,11 @@ public class StockHandler implements SocketHandle {
     private static Logger logger = LoggerFactory.getLogger(StockHandler.class);
 
     @Autowired
-    private StocketApiService stocketApiService;
+    private StockApiService stockApiService;
 
     @Override
     public void handle() {
-        stocketApiService.refreshCodeList();
+        stockApiService.refreshCodeList();
     }
 
 
